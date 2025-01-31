@@ -12,6 +12,7 @@ import NavBar from "./components/NavBar";
 import Hero from "./components/Hero";
 import Skills from "./components/Skills"; // import the new component
 import Footer from "./components/Footer";
+import WhatIDo from "./components/WhatIDo";
 
 
 
@@ -24,7 +25,7 @@ function App() {
       <DarkSkills />
       <Projects />
       <DarkCallToAction />
-
+      <WhatIDo />
       <Footer />
     </>
   );

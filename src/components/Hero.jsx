@@ -10,7 +10,7 @@ import profileImage from "../assets/profile-image.png"; // update path if needed
 
 const Hero = () => {
   return (
-    <section className="hero-section">
+    <section className="hero-section" id="Home" >
       <div className="hero-card">
         {/* Image Container + Overlay */}
         <div className="hero-image-container">
@@ -31,7 +31,7 @@ const Hero = () => {
             <a href="https://instagram.com" target="_blank" rel="noreferrer">
               <FaInstagram />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer">
+            <a href="https://www.linkedin.com/in/nikhil-kumar-8054042b2/" target="_blank" rel="noreferrer">
               <FaLinkedinIn />
             </a>
           </div>
@@ -50,8 +50,9 @@ const Hero = () => {
           I enjoy solving tough problems and delivering meaningful results through data insights.
           </p>
           <div className="hero-buttons">
-            <button className="btn-primary">My Project</button>
-            <button className="btn-secondary">
+            <button className="btn-primary" onClick={() => document.getElementById("projects").scrollIntoView({ behavior: "smooth" })}
+            >My Project</button>
+            <button className="btn-secondary" onClick={() => window.open("https://drive.google.com/file/d/1vdFoOw-O4M9jvlHe4iVBaJ7-kPUs2VHB/view?usp=sharing", "_blank")}>
               <FaCloudDownloadAlt className="icon-download" />
               Download CV
             </button>
