@@ -1,0 +1,846 @@
+/******************************************************
+  1) RESET & VARIABLES
+ ******************************************************/
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: #fff;
+  color: #333;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* Example variables (optional) */
+:root {
+  --primary-color: #a855f7;  /* Purple accent */
+  --secondary-color: #9333ea; 
+  --white: #fff;
+  --light-bg: #f9f9f9;
+  --heading-color: #111;
+  --text-color: #333;
+  --max-width: 1200px;
+}
+
+/******************************************************
+  2) NAVBAR (OPTIONAL EXAMPLE)
+ ******************************************************/
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+}
+
+.navbar-brand {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--heading-color);
+  text-decoration: none;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-links a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+.navbar-links a:hover {
+  color: var(--primary-color);
+}
+
+/* Ensure first content block isn’t hidden behind navbar */
+.section--first {
+  padding-top: 5rem;
+}
+
+/******************************************************
+  3) HERO SECTION (OPTIONAL EXAMPLE)
+ ******************************************************/
+.hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, #f8f4ff 0%, #fefcff 35%, #fff 100%);
+  padding: 4rem 1rem;
+  margin-top: 4rem; /* if fixed navbar above */
+}
+
+.hero-card {
+  background-color: var(--white);
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  gap: 2rem;
+  padding: 3rem 2rem;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.hero-image-container {
+  position: relative;
+}
+
+.hero-profile-img {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.hero-social-overlay {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+  background: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.hero-social-overlay a {
+  color: var(--primary-color);
+  font-size: 1.25rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+.hero-social-overlay a:hover {
+  color: var(--secondary-color);
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 280px;
+}
+.hero-text h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--heading-color);
+}
+.hero-text p {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/******************************************************
+  4) BUTTONS (OPTIONAL EXAMPLE)
+ ******************************************************/
+.btn-primary,
+.btn-secondary {
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  transition: background-color 0.3s;
+  display: inline-flex;
+  align-items: center;
+  font-size: 1rem;
+}
+
+/* Solid button */
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+.btn-primary:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Outline button */
+.btn-secondary {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+.btn-secondary:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+.icon-download {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
+
+/******************************************************
+  5) CONTINUOUS MARQUEE FOR SKILLS
+ ******************************************************/
+.skills-marquee {
+  width: 100%;
+  overflow: hidden; /* hide overflow so we only see the marquee track */
+  background: var(--light-bg);
+  padding: 2rem 0;
+  box-sizing: border-box;
+}
+
+.skills-marquee-track {
+  display: inline-flex;
+  animation: scrollMarquee 60s linear infinite;
+  /* Increase '60s' to slow down, decrease to speed up */
+}
+
+/* Keyframes: move from 0% to -50% for a smooth loop (since we duplicate items) */
+@keyframes scrollMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Each skill box for the marquee */
+.skill-box {
+  background: #fff;
+  min-width: 150px;
+  text-align: center;
+  margin: 0 1rem;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.skill-icon {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.skill-box h4 {
+  font-size: 1rem;
+  color: #333;
+  margin: 0;
+}
+
+/* Wraps the TECHNICAL SKILLS text content */
+.technical-skills-info {
+  max-width: 1200px;
+  margin: 2rem auto;            /* centers & adds vertical spacing */
+  padding: 2rem 1rem;
+  background-color: #f9f9f9;    /* or #fff, if you prefer */
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.technical-skills-info h2 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;            /* adjust as needed */
+  color: #111;
+  text-align: center;           /* center the heading */
+}
+
+.technical-skills-info p {
+  margin-bottom: 0.75rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Optionally emphasize the label (e.g., "Languages:", "Developer Tools:") */
+.technical-skills-info p strong {
+  color: #a855f7; /* match your brand's accent color if you'd like */
+}
+
+/* 
+  TECHNICAL SKILLS SECTION
+  Feel free to adjust brand colors, shadows, font sizes, etc.
+*/
+
+.technical-skills-section {
+  max-width: 1200px;
+  margin: 3rem auto; 
+  padding: 0 1rem; /* side padding for smaller screens */
+}
+
+/* Main title for the section */
+.technical-skills-title {
+  font-size: 2rem;
+  color: #a855f7; /* accent color - change as needed */
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+/* Optional subtle line or highlight under the heading */
+.technical-skills-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #9333ea; /* or your accent color */
+  margin: 0.5rem auto 0 auto;
+  border-radius: 2px;
+}
+
+/* The card that encloses the skill categories */
+.technical-skills-card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  padding: 2rem;
+}
+
+/* Grid layout for two columns */
+.technical-skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+/* Individual column inside the grid */
+.skills-column h3 {
+  font-size: 1.2rem;
+  color: #111;
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 0.25rem;
+}
+
+/* Optional decorative border/line for each subheading */
+.skills-column h3::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 100%;
+  background: #a855f7; 
+  margin-right: 0.5rem;
+  transform: translateY(4px);
+}
+
+/* List styles */
+.skills-column ul {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+}
+
+.skills-column ul li {
+  padding: 0.25rem 0;
+  color: #555;
+  border-bottom: 1px solid #eee;
+  transition: color 0.2s ease;
+}
+.skills-column ul li:last-child {
+  border-bottom: none;
+}
+
+/* Hover effect on list items (optional) */
+.skills-column ul li:hover {
+  color: #a855f7; /* accent color */
+}
+
+/* Responsive: Stack columns on smaller screens */
+@media (max-width: 768px) {
+  .technical-skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/***********************************************
+  Overall Section
+***********************************************/
+.dark-skills-section {
+  background: #1c1c1c;  /* Dark background */
+  color: #ccc;         /* Light text */
+  padding: 3rem 2rem;
+  font-family: "Fira Code", monospace; /* or another monospaced font */
+}
+
+/* The heading "#skills" plus underline */
+.dark-skills-title {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  color: #ccc;
+  margin-bottom: 2rem;
+}
+.hash-symbol {
+  color: #a855f7; /* accent color for the # */
+  margin-right: 0.25rem;
+}
+.title-underline {
+  flex-grow: 1;
+  height: 1px;
+  background: #a855f7;
+  margin-left: 1rem;
+  margin-top: 2px; /* align with text nicely */
+}
+
+/***********************************************
+  Layout: Left SVG / Right skill boxes
+***********************************************/
+.dark-skills-layout {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 5rem;
+}
+
+/* Left side: SVG illustration */
+.left-illustration {
+  flex: 1; /* or a fixed width if you prefer */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.illustration-svg {
+  max-width: 100%;
+  height: auto;
+  /* or set a fixed width/height if you want a certain size */
+}
+
+/* Right side: skill boxes in a vertical column */
+.right-skills {
+  flex: 1.2;
+  display: flex;
+  flex-wrap: wrap; /* wrap in multiple rows if you want columns */
+  gap: 1rem;
+}
+
+/***********************************************
+  Skill Box
+***********************************************/
+.skill-box {
+  border: 1px solid #555; /* subtle outline */
+  padding: 1rem 1.5rem;
+  min-width: 180px;
+  border-radius: 4px;
+  background: transparent; /* let the dark background show through */
+  flex: 1 1 220px; /* each box tries to be at least 220px wide, changes with wrap */
+}
+
+/* Subheading in each box */
+.skill-box h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #eee;
+  text-transform: uppercase;
+  border-bottom: 1px solid #555;
+  padding-bottom: 0.25rem;
+}
+
+/* Items in each box */
+.skill-box p {
+  margin: 0.25rem 0;
+  color: #ccc;
+  white-space: nowrap; /* keep single line if you prefer */
+}
+
+/***********************************************
+  Responsive
+***********************************************/
+@media (max-width: 768px) {
+  .dark-skills-layout {
+    flex-direction: column; /* stack the SVG on top, boxes below */
+    align-items: center;
+  }
+  .left-illustration, .right-skills {
+    flex: unset;
+    width: 100%;
+    justify-content: center;
+  }
+  .right-skills {
+    margin-top: 2rem;
+  }
+}
+
+/* proj
+.projects-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.projects-header {
+  margin-bottom: 3rem;
+}
+.projects-header h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #111;
+}
+.projects-header p {
+  max-width: 600px;
+  margin: 0.5rem auto;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* 3-column grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem; /* spacing between cards */
+}
+
+/* Each project card */
+.project-card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  overflow: hidden; /* so the image corners are clipped with border radius */
+  text-align: left; /* content alignment inside card */
+  transition: transform 0.2s ease;
+}
+.project-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Project image (top) */
+.project-image {
+  width: 100%;
+  height: 180px;  /* fixed height or remove if you want auto-height */
+  object-fit: cover;
+  display: block;
+}
+
+/* Card content (bottom) */
+.project-content {
+  padding: 1.25rem;
+}
+.project-label {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #a855f7; /* accent color */
+  margin-bottom: 0.25rem;
+}
+.project-title {
+  font-size: 1.125rem;
+  margin: 0.5rem 0;
+  color: #111;
+}
+.project-desc {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+/* "Case Study" button inside card */
+.case-study-btn {
+  background: #fff;
+  color: #a855f7;
+  border: 2px solid #a855f7;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+.case-study-btn .arrow {
+  margin-left: 0.5rem;
+  font-weight: bold;
+}
+.case-study-btn:hover {
+  background: #a855f7;
+  color: #fff;
+}
+
+/* "More Project" button at bottom */
+.projects-footer {
+  margin-top: 3rem;
+}
+.more-projects-btn {
+  background: #a855f7;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.more-projects-btn:hover {
+  background-color: #9333ea;
+}
+
+/* Responsive: stack columns on smaller screens */
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 
+   PROJECTS SECTION 
+   - 3-column grid on large screens
+   - uniform card sizes
+   - consistent spacing
+*/
+
+/* Section wrapper */
+.projects-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+/* Header area (title + paragraph) */
+.projects-header {
+  margin-bottom: 3rem;
+}
+.projects-header h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #111;
+}
+.projects-header p {
+  max-width: 600px;
+  margin: 0.5rem auto;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Responsive grid layout */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem; /* space between cards */
+  margin-bottom: 3rem; /* space before the "More Project" button */
+}
+
+/* Each project card */
+.project-card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  overflow: hidden; /* to clip the image corners along with radius */
+  text-align: left;
+  transition: transform 0.2s ease;
+}
+.project-card:hover {
+  transform: translateY(-4px); 
+}
+
+/* Fixed-height image for uniform card sizes */
+.project-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Card content area */
+.project-content {
+  padding: 1.25rem;
+}
+
+.project-label {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #a855f7; /* accent color */
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+}
+.project-title {
+  font-size: 1.125rem;
+  margin: 0.5rem 0;
+  color: #111;
+}
+.project-desc {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+/* "Project Link →" button as an anchor */
+.project-link-btn {
+  background: #fff;
+  color: #a855f7;
+  border: 2px solid #a855f7;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  font-weight: 500;
+}
+.project-link-btn:hover {
+  background: #a855f7;
+  color: #fff;
+}
+
+/* Bottom button for "More Project" */
+.projects-footer {
+  text-align: center;
+}
+.more-projects-btn {
+  background: #a855f7;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.more-projects-btn:hover {
+  background-color: #9333ea;
+}
+
+/*Dark call to acgt*/
+.dark-cta-section {
+  background-color: #1c1c1c;
+  color: #ccc;
+  padding: 3rem 2rem;
+  font-family: "Fira Code", monospace;
+}
+
+/* Header: "#lets built" */
+.dark-cta-header {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+.hash-symbol {
+  color: #a855f7;
+  margin-right: 0.5rem;
+}
+.title-underline {
+  flex-grow: 1;
+  height: 1px;
+  background: #a855f7;
+  margin-left: 1rem;
+}
+
+/* Layout: left = 1/3, right = 2/3 */
+.dark-cta-layout {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Left side: 1/3 width */
+.left-animation {
+  flex: 1; /* or flex: 1 if you want 1/3 vs. 2 for the other side. */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Control the size of the Lottie animation here if needed */
+.illustration-svg {
+  width: 100%; 
+  max-width: 300px; /* limit how large it can grow */
+  height: auto;
+}
+
+/* Right side: 2/3 width */
+.right-content {
+  flex: 2; /* 2 parts, vs. left's 1 part => 1/3 & 2/3 overall */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* CTA text */
+.dark-cta-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #fefefe;
+  line-height: 1.3;
+}
+.dark-cta-subtext {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  color: #aaaaaa;
+  line-height: 1.6;
+}
+.dark-cta-button {
+  background-color: #a855f7;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+.dark-cta-button:hover {
+  background-color: #9333ea;
+}
+
+/* Responsive: stack on smaller screens */
+@media (max-width: 768px) {
+  .dark-cta-layout {
+    flex-direction: column;
+  }
+  .left-animation {
+    margin-bottom: 2rem;
+    flex: unset; /* let it shrink for mobile */
+  }
+  .right-content {
+    text-align: center;
+    flex: unset;
+  }
+}
+
+
+
+
+
+
+/******************************************************
+  6) FOOTER (OPTIONAL EXAMPLE)
+ ******************************************************/
+footer {
+  background: var(--light-bg);
+  text-align: center;
+  padding: 2rem;
+  color: #555;
+}
+footer p {
+  margin: 0;
+}
