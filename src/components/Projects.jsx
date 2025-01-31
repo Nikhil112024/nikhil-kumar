@@ -1,12 +1,12 @@
 import React from "react";
 
 // Replace with your own image imports
-import projImg1 from "../assets/project1.jpg";
-import projImg2 from "../assets/project2.jpg";
-import projImg3 from "../assets/project3.jpg";
-import projImg4 from "../assets/project4.jpg";
-import projImg5 from "../assets/project5.jpg";
-import projImg6 from "../assets/project6.jpg";
+import projImg1 from "../assets/Project thumbnail/Panoramic Surveillance System.webp";
+import projImg2 from "../assets/Project thumbnail/Eye-Controlled Mouse.webp";
+import projImg3 from "../assets/Project thumbnail/All-in-One Social Media Application.webp";
+import projImg4 from "../assets/Project thumbnail/AI Chatbot.webp";
+import projImg5 from "../assets/Project thumbnail/8085 Microprocessor Simulation.webp";
+import projImg6 from "../assets/Project thumbnail/AI-Powered Image Generation.webp";
 
 export default function Projects() {
   const projectData = [
@@ -43,14 +43,14 @@ export default function Projects() {
       title: "Product Admin Dashboard",
       description: "Short description here.",
       img: projImg5,
-      link: "https://github.com/yourUser/Project5"
+      link: "https://github.com/Nikhil112024/8085-Microprocessor-Simulation"
     },
     {
       label: "UI-UX DESIGN",
       title: "Product Admin Dashboard",
       description: "Short description here.",
       img: projImg6,
-      link: "https://github.com/yourUser/Project6"
+      link: "https://github.com/Nikhil112024/AI-Powered-Image-Generation"
     }
   ];
 
