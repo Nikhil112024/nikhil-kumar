@@ -11,7 +11,7 @@ const NavBar = () => {
         <div className="left-links">
           <a href="Home">Home</a>
           <a href="#about">About</a>
-          <a href="#process">Process</a>
+          <a href="#skill">Skills</a>
 
           {/* Projects Dropdown */}
           <div 

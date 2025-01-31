@@ -6,8 +6,8 @@ const Footer = () => {
       <div className="footer-container">
         {/* Left Side: Logo */}
         <div className="footer-logo">
-          <div className="logo-circle">B</div>
-          <span className="logo-text">Brooklyn</span>
+          <div className="logo-circle">NK</div>
+          <span className="logo-text">Nikhil Kumar</span>
         </div>
 
         {/* Center: Navigation Links */}
@@ -23,7 +23,7 @@ const Footer = () => {
 
         {/* Right Side: Copyright Text */}
         <div className="footer-right">
-          <p>Copyright © 2022 Picto.</p>
+          <p>Copyright © 2025 Nikhil.</p>
         </div>
       </div>
     </footer>

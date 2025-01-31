@@ -5,7 +5,7 @@ import ExampleSvg from "../assets/animation.json";
 
 export default function DarkSkills() {
   return (
-    <section className="dark-skills-section">
+    <section className="dark-skills-section" id="skill">
       <div className="dark-skills-title">
         <span className="hash-symbol">#</span>skills
         <div className="title-underline"></div>
