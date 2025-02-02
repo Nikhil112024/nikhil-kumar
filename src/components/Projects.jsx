@@ -59,8 +59,7 @@ export default function Projects() {
       <div className="projects-header">
         <h2>Portfolio</h2>
         <p>
-          There are many variations of passages of Lorem Ipsum available,
-          but the majority have suffered alteration.
+          Some of my import projects are given below feel free to checkout and learn about them.
         </p>
       </div>
 

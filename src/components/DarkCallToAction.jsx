@@ -25,8 +25,7 @@ export default function DarkCallToAction() {
             Do you have Project Idea?<br/>Let’s discuss your project!
           </h2>
           <p className="dark-cta-subtext">
-            There are many variations of passages of Lorem Ipsum available,
-            but the majority have suffered alteration.
+          Open to collaborating on exciting ideas, especially in machine learning, web development, and automation. Let’s connect and create something impactful!".
           </p>
           <button className="dark-cta-button">
             Let’s work Together →
