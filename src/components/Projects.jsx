@@ -22,7 +22,7 @@ export default function Projects() {
       title: " Eye Controlled Mouse ",
       description: "Built a system to control the mouse cursor using real-time eye movement tracking without traditional input devices.",
       img: projImg2,
-      link: "https://github.com/Nikhil112024/EyeControlledMouse"
+      link: "https://github.com/Nikhil112024/EyeControlledMouse.git"
     },
     {
       label: " React JS, Appwrite, JavaScript",
@@ -39,18 +39,18 @@ export default function Projects() {
       link: "https://github.com/Nikhil112024/Chat-bot"
     },
     {
-      label: "UI-UX DESIGN",
-      title: "Product Admin Dashboard",
+      label: "OOPS-C++",
+      title: "8085 MicroProcessor Simulator",
       description: "Short description here.",
       img: projImg5,
       link: "https://github.com/Nikhil112024/8085-Microprocessor-Simulation"
     },
     {
-      label: "UI-UX DESIGN",
-      title: "Product Admin Dashboard",
-      description: "Short description here.",
+      label: "Vite, React, JavaScript, APIs",
+      title: "AI Photo-Editor",
+      description: "This app will offer Image editing Post-processing Image.",
       img: projImg6,
-      link: "https://github.com/Nikhil112024/AI-Powered-Image-Generation"
+      link: "https://github.com/Nikhil112024/Photo-Editor"
     }
   ];
 
