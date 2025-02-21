@@ -67,4 +67,4 @@ I am a **versatile software developer** with expertise in AI, ML, Full-Stack Dev
 
 ---
 
-⭐ **If you like my work, consider giving it a star!** 🌟  
+⭐ **If you like my work, consider giving it a star! Contact me for info ** 🌟  
