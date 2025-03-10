@@ -64,7 +64,3 @@ I am a **versatile software developer** with expertise in AI, ML, Full-Stack Dev
 🔗 [GitHub](https://github.com/Nikhil112024)  
 🔗 [LinkedIn](https://linkedin.com/in/nikhil-kumar-8054042b2/)  
 📩 Email: [nikhilkumarjuyal777@gmail.com](mailto:nikhilkumarjuyal777@gmail.com)  
-
----
-
-⭐ **If you like my work, consider giving it a star! Contact me for info ** 🌟  
